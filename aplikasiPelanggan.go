@@ -19,13 +19,13 @@ type arrPelanggan [NMAX]pelanggan
 func menu(T *arrPelanggan, n *int) {
 	var pilihan int
 
-	fmt.Print("============ Menu ============\n")
-	fmt.Print("\n1. Tambah Data\n")
-	fmt.Print("2. Ubah Data\n")
-	fmt.Print("3. Hapus Data\n")
-	fmt.Print("4. Lihat Daftar Pelanggan\n")
-	fmt.Print("5. Cari Data Pelanggan\n")
-	fmt.Print("6. Exit\n\n")
+	fmt.Print("\n============ Menu ============\n")
+	fmt.Print("     1. Tambah Data\n")
+	fmt.Print("     2. Ubah Data\n")
+	fmt.Print("     3. Hapus Data\n")
+	fmt.Print("     4. Lihat Daftar Pelanggan\n")
+	fmt.Print("     5. Cari Data Pelanggan\n")
+	fmt.Print("     6. Exit\n\n")
 
 	fmt.Scan(&pilihan)
 	if pilihan == 1 {
@@ -33,9 +33,9 @@ func menu(T *arrPelanggan, n *int) {
 	} else if pilihan == 2 {
 
 	} else if pilihan == 3 {
-
+		hapusData(T, n)
 	} else if pilihan == 4 {
-
+		cetakArray(*T, *n)
 	} else if pilihan == 5 {
 
 	} else if pilihan == 6 {
@@ -64,12 +64,18 @@ func inputData(T *arrPelanggan, n *int) {
 
 func hapusData(T *arrPelanggan, n *int) {
 	var nama string
+	var idx int
 	fmt.Print("Nama yang ingin dihapus: ")
 	fmt.Scan(&nama)
-
+	idx = cariIdxNama(*T, *n, nama)
+	for i := idx; i < *n; i++ {
+		T[i] = T[i+1]
+	}
+	*n--
+	menu(T, n)
 }
 
-func nameSearch(T arrPelanggan, n int, name string) int {
+func cariIdxNama(T arrPelanggan, n int, name string) int {
 	var idx, i int
 	var found bool
 	idx = -1
@@ -84,11 +90,15 @@ func nameSearch(T arrPelanggan, n int, name string) int {
 	return idx
 }
 
+func cetakArray(T arrPelanggan, n int) {
+	for i := 0; i < n; i++ {
+		fmt.Print(T[i], "\n")
+	}
+	menu(&T, &n)
+}
+
 func main() {
 	var T arrPelanggan
 	var n int
 	menu(&T, &n)
-	for i := 0; i < n; i++ {
-		fmt.Print(T[i])
-	}
 }
