@@ -1,3 +1,5 @@
 INV001 Aldi Jakarta-Bandung 10 30-05-2023 18-06-2023
 INV002 Budi Surabaya-Malang 30 01-09-2023 22-11-2023
 INV003 Citra Makassar-Palu 5 10-02-2023 04-05-2023
+
+INV001 Aldy Jakarta-Bandung 10 30-05-2023 18-06-2023

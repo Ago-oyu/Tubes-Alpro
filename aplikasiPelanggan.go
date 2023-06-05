@@ -21,24 +21,22 @@ func menu(T *arrPelanggan, n *int) {
 
 	fmt.Print("\n============ Menu ============\n")
 	fmt.Print("     1. Tambah Data\n")
-	fmt.Print("     2. Ubah Data\n")
-	fmt.Print("     3. Hapus Data\n")
-	fmt.Print("     4. Lihat Daftar Pelanggan\n")
-	fmt.Print("     5. Cari Data Pelanggan\n")
-	fmt.Print("     6. Exit\n\n")
+	fmt.Print("     2. Hapus Data\n")
+	fmt.Print("     3. Lihat Daftar Pelanggan\n")
+	fmt.Print("     4. Cari Data Pelanggan\n")
+	fmt.Print("     5. Exit\n\n")
 
+	fmt.Print("Pilih Menu: ")
 	fmt.Scan(&pilihan)
 	if pilihan == 1 {
 		inputData(T, n)
 	} else if pilihan == 2 {
-
-	} else if pilihan == 3 {
 		hapusData(T, n)
-	} else if pilihan == 4 {
+	} else if pilihan == 3 {
 		cetakArray(*T, *n)
-	} else if pilihan == 5 {
+	} else if pilihan == 4 {
 
-	} else if pilihan == 6 {
+	} else if pilihan == 5 {
 
 	} else {
 		menu(T, n)
@@ -46,20 +44,30 @@ func menu(T *arrPelanggan, n *int) {
 }
 
 func inputData(T *arrPelanggan, n *int) {
-	var data pelanggan
-	fmt.Scan(&data.noKontrak)
-	for data.noKontrak != "#" && *n < NMAX {
-		fmt.Scan(&data.nama, &data.link, &data.kapasitas, &data.tglMulai, &data.tglAkhir)
-		T[*n].nama = data.nama
-		T[*n].link = data.link
-		T[*n].kapasitas = data.kapasitas
-		T[*n].tglMulai = data.tglMulai
-		T[*n].tglAkhir = data.tglAkhir
-		*n++
-		fmt.Scan(&data.noKontrak)
+	var noKontrak string
+	fmt.Scan(&noKontrak)
+	for noKontrak != "#" {
+		if cariIdx(*T, *n, noKontrak, "kontrak") == -1 {
+			tambahData(T, n, noKontrak)
+		} else {
+			ubahData(T, *n, noKontrak)
+		}
+		fmt.Scan(&noKontrak)
 	}
-	fmt.Print("SELESAI\n\n")
+	fmt.Print("INPUT SELESAI\n")
 	menu(T, n)
+}
+
+func tambahData(T *arrPelanggan, n *int, noKontrak string) {
+	T[*n].noKontrak = noKontrak
+	fmt.Scan(&T[*n].nama, &T[*n].link, &T[*n].kapasitas, &T[*n].tglMulai, &T[*n].tglAkhir)
+	*n++
+
+}
+
+func ubahData(T *arrPelanggan, n int, noKontrak string) {
+	var idx = cariIdx(*T, n, noKontrak, "kontrak")
+	fmt.Scan(&T[idx].nama, &T[idx].link, &T[idx].kapasitas, &T[idx].tglMulai, &T[idx].tglAkhir)
 }
 
 func hapusData(T *arrPelanggan, n *int) {
@@ -67,7 +75,7 @@ func hapusData(T *arrPelanggan, n *int) {
 	var idx int
 	fmt.Print("Nama yang ingin dihapus: ")
 	fmt.Scan(&nama)
-	idx = cariIdxNama(*T, *n, nama)
+	idx = cariIdx(*T, *n, nama, "nama")
 	for i := idx; i < *n; i++ {
 		T[i] = T[i+1]
 	}
@@ -75,17 +83,28 @@ func hapusData(T *arrPelanggan, n *int) {
 	menu(T, n)
 }
 
-func cariIdxNama(T arrPelanggan, n int, name string) int {
+func cariIdx(T arrPelanggan, n int, name string, flag string) int {
 	var idx, i int
 	var found bool
+	i = 0
 	idx = -1
 	found = false
-	for i < n || !found {
-		if T[i].nama == name {
-			idx = i
-			found = true
+	if flag == "nama" {
+		for i < n && !found {
+			if T[i].nama == name {
+				idx = i
+				found = true
+			}
+			i++
 		}
-		i++
+	} else if flag == "kontrak" {
+		for i < n && !found {
+			if T[i].noKontrak == name {
+				idx = i
+				found = true
+			}
+			i++
+		}
 	}
 	return idx
 }
