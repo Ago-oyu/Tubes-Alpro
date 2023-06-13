@@ -7,4 +7,4 @@ Aplikasi ini digunakan oleh bagian komersil penyediaan koneksi internet. Data ya
 ## Spesifikasi
 - Admin bisa menambahkan, mengubah, dan menghapus data pada aplikasi.  
 -  pengguna bisa melihat daftar pelanggan secara terurut berdasarkan kriteria tertentu (misal kapasitas, nama link, tanggal akhir kontrak).
--  Pengguna bisa mencari data pelanggan berdasarkan kata kunci dan kategori tertenti.  
+-  Pengguna bisa mencari data pelanggan berdasarkan kata kunci dan kategori tertentu.  
