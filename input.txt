@@ -1,5 +1,13 @@
-INV003 Citra Makassar-Palu 5 10-02-2023 04-05-2023
-INV002 Budi Surabaya-Malang 30 01-09-2023 22-11-2023
-INV001 Aldi Jakarta-Bandung 10 30-05-2023 18-06-2023
+INV004 Citra Poso-Palu 77 10-07-2023 10-11-2023
+INV009 Budi Surabaya-Malang 17 09-02-2023 10-03-2023
+INV007 Aldi Jakarta-Bandung 98 01-07-2023 06-10-2023
+INV001 Eka Balikpapan-Bontang 84 31-01-2023 03-11-2023
+INV003 Rusman Jambi-Padang 73 20-03-2023 19-08-2023
+INV002 Jasmin Ambon-Ternate 65 22-06-2023 22-09-2023
+INV010 Intan Klaten-Semarang 9 06-05-2023 20-05-2023
+INV008 Sabri Singkawang-Pontianak 24 13-08-2023 12-11-2023
+INV006 Darto Mataram-Denpasar 31 05-11-2023 19-11-2023
+INV005 Tantri Sorong-Nabire 5 20-02-2023 28-11-2023
+
 
 INV001 Aldy Jakarta-Bandung 10 30-05-2023 18-06-2023
