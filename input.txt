@@ -11,3 +11,5 @@ INV005 Tantri Sorong-Nabire 5 20-02-2023 28-11-2023
 
 
 INV001 Aldy Jakarta-Bandung 10 30-05-2023 18-06-2023
+
+INV003 Rusman Lampung-Padang 73 20-03-2023 19-08-2023
